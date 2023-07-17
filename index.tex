@@ -42,7 +42,7 @@
 \begin{document}
 \maketitle
 
-In this document we will guide reader through the process of setting up custom Kubernetes cluster. We will show it's specific features to facilitate process of deploying and running web applications in it.
+In this document, we will guide the reader through the process of setting up a custom Kubernetes cluster. We will showcase its specific features, aiming to facilitate the deployment and execution of web applications within the cluster.
 \bigbreak
 Kubernetes is an open-source container orchestration tool bringing new modern approach for running web applications in the cloud. Kubernetes was created by Google in 2014 and written in Go. Running production on open-source software, however, comes without any guarantees. Thus, a market for commecrial products arised. In this document we will not only present the setup per-se but also compare managed providers with self-hosted commercial solutions to self-hosted plain Kubernetes. \par
 \bigbreak
@@ -90,7 +90,7 @@ The settings has to be done on root of Apache which is a request (and potential 
   </VirtualHost>	
 \end{lstlisting}
 \subsection{Scaling}
-Hosting several applications on one server or one by one might bring scaling problems. Kubernetes allows interfacing with cluster...which has independent attachagle worker nodes. workloads can then automatically scale making great for variable production (Cluster IMG + M+Ws IMG)
+Scaling multiple applications individually or hosting them on a single server can lead to scalability challenges. However, Kubernetes provides a solution by enabling communication with a cluster consisting of independent worker nodes that can be attached. This allows workloads to scale automatically, making it an excellent choice for handling variable production demands. 
 \begin{lstlisting}
 
 \end{lstlisting}
@@ -102,7 +102,15 @@ mby
 - different runtimes PHP / libs
 - difrerent libraries
 - izolation / scaling
-\section{Virtualization w/ Kubernetes}
+\section{Technical construction of Docker images}
+There are 3 Key Components for Container Isolation in Docker and standards and organizations making it possible to exist. In summary, chroot, namespaces, and cgroups play crucial roles in Docker. Chroot provides a separate root file system for containers, enhancing security. Namespaces isolate processes and resources, preventing interference between containers and the host system. Finally, cgroups enable Docker to manage and allocate system resources efficiently, ensuring fair usage among containers and maintaining system stability.
+\subsection*{Chroot}
+In Docker, chroot (change root) is used to create an isolated environment for running processes. It allows Docker to create a root directory that is different from the host system's root directory, effectively limiting the view of the file system for the processes running within the container. This helps to enhance security by isolating the container's file system and preventing access to sensitive files and directories on the host system. Chroot provides a lightweight form of isolation by limiting the visibility of the container's file system, but it does not provide other forms of isolation such as process or network isolation.
+\subsection*{Namespaces}
+Namespaces are another key feature used by Docker to provide process isolation. Docker leverages various namespaces such as PID (process ID), mount, network, and more. Each namespace creates a separate instance of a particular resource for each container, effectively isolating the containers from each other and from the host system. For example, the PID namespace ensures that processes running inside a container only see their own processes and not processes from other containers or the host system.
+\subsection*{cgroups}
+Control groups, or cgroups, is a feature of the Linux kernel that Docker utilizes for resource management. Cgroups allow Docker to allocate and limit resources such as CPU, memory, disk I/O, and network bandwidth to individual containers. By assigning specific resource limits, Docker ensures fair resource distribution and prevents any single container from monopolizing the resources of the host system. Cgroups enable Docker to control and monitor resource usage effectively, enhancing overall system stability and performance.
+
 \subsection{cgroups}
 Control groups \textbf{cgroups} play a major role in isolation of running processes within Linux kernel.  
 
