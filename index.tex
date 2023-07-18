@@ -98,22 +98,22 @@ Scaling multiple applications individually or hosting them on a single server ca
 From bottom linux, to other layers as php/alpine.
 \section{Technical construction of Docker images}
 There are 3 key components for Container Isolation in Docker and standards and organizations making it possible to exist. In summary, chroot, namespaces, and cgroups play crucial roles in Docker. Chroot provides a separate root file system for containers, enhancing security. Namespaces isolate processes and resources, preventing interference between containers and the host system. Finally, cgroups enable Docker to manage and allocate system resources efficiently, ensuring fair usage among containers and maintaining system stability.
-\subsection*{chroot}
+\subsection*{Docker internals - chroot}
 In Docker, chroot (change root) is used to create an isolated environment for running processes. It allows Docker to create a root directory that is different from the host system's root directory, effectively limiting the view of the file system for the processes running within the container. This helps to enhance security by isolating the container's file system and preventing access to sensitive files and directories on the host system. Chroot provides a lightweight form of isolation by limiting the visibility of the container's file system, but it does not provide other forms of isolation such as process or network isolation.
-\subsection*{Namespaces}
+\subsection*{Docker internals - Namespaces}
 Namespaces are another key feature used by Docker to provide process isolation. Docker leverages various namespaces such as PID (process ID), mount, network, and more. Each namespace creates a separate instance of a particular resource for each container, effectively isolating the containers from each other and from the host system. For example, the PID namespace ensures that processes running inside a container only see their own processes and not processes from other containers or the host system.
-\subsection{cgroups}
+\subsection{Docker internals - cgroups}
 Control groups \textbf{cgroups} play a major role in isolation of running processes within Linux kernel.  
 
-\subsection{Image structure}
+\subsection{Docker Image Structure}
 Images are layered... built...etc.
 \begin{center}
   \includegraphics[width=0.450\textwidth]{000_Image_structure.png}
 \end{center}
-\subsection{Open Container Initiative}
-The Open Container Initiative is an open governance structure for the express purpose of creating open industry standards around container formats and runtimes.
+\subsection{OCI (Open Container Initiative)}
+The Open Container Initiative is an open governance structure for the express purpose of creating open industry standards around container formats and runtimes. It bridges gaps between Docker and other container formats and connects developers who are interested in dockerization in very friendly (non competitive) manner. 
 \subsection{History}
-mby some history
+Docker was not first, there is Chiff spinning VMs etc. Kubernetes is production stuff but Docker Swarm and container runtimes are also possible.
 \subsection{Breakdown of Kubernetes objects}
 Kubernetes clusters have similar architecture regardless of provider or author. Despite some differences, the main core objects and flows are the same. We will  
 \subsubsection*{Cluster Architecture}
