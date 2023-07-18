@@ -95,22 +95,13 @@ Scaling multiple applications individually or hosting them on a single server ca
 
 \end{lstlisting}
 \subsection{Different images preparation}
-mby
-\subsection{Virtual infrastructure objects - redo, in next chapter}
-- routing
-- applications running
-- different runtimes PHP / libs
-- difrerent libraries
-- izolation / scaling
+From bottom linux, to other layers as php/alpine.
 \section{Technical construction of Docker images}
-There are 3 Key Components for Container Isolation in Docker and standards and organizations making it possible to exist. In summary, chroot, namespaces, and cgroups play crucial roles in Docker. Chroot provides a separate root file system for containers, enhancing security. Namespaces isolate processes and resources, preventing interference between containers and the host system. Finally, cgroups enable Docker to manage and allocate system resources efficiently, ensuring fair usage among containers and maintaining system stability.
-\subsection*{Chroot}
+There are 3 key components for Container Isolation in Docker and standards and organizations making it possible to exist. In summary, chroot, namespaces, and cgroups play crucial roles in Docker. Chroot provides a separate root file system for containers, enhancing security. Namespaces isolate processes and resources, preventing interference between containers and the host system. Finally, cgroups enable Docker to manage and allocate system resources efficiently, ensuring fair usage among containers and maintaining system stability.
+\subsection*{chroot}
 In Docker, chroot (change root) is used to create an isolated environment for running processes. It allows Docker to create a root directory that is different from the host system's root directory, effectively limiting the view of the file system for the processes running within the container. This helps to enhance security by isolating the container's file system and preventing access to sensitive files and directories on the host system. Chroot provides a lightweight form of isolation by limiting the visibility of the container's file system, but it does not provide other forms of isolation such as process or network isolation.
 \subsection*{Namespaces}
 Namespaces are another key feature used by Docker to provide process isolation. Docker leverages various namespaces such as PID (process ID), mount, network, and more. Each namespace creates a separate instance of a particular resource for each container, effectively isolating the containers from each other and from the host system. For example, the PID namespace ensures that processes running inside a container only see their own processes and not processes from other containers or the host system.
-\subsection*{cgroups}
-Control groups, or cgroups, is a feature of the Linux kernel that Docker utilizes for resource management. Cgroups allow Docker to allocate and limit resources such as CPU, memory, disk I/O, and network bandwidth to individual containers. By assigning specific resource limits, Docker ensures fair resource distribution and prevents any single container from monopolizing the resources of the host system. Cgroups enable Docker to control and monitor resource usage effectively, enhancing overall system stability and performance.
-
 \subsection{cgroups}
 Control groups \textbf{cgroups} play a major role in isolation of running processes within Linux kernel.  
 
