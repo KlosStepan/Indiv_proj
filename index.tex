@@ -123,6 +123,9 @@ Kubernetes clusters have similar architecture regardless of provider or author. 
 Cluster architecture refers to the arrangement and organization of nodes within a Kubernetes cluster. In a Kubernetes cluster, there are different types of nodes, including the master node and worker nodes. The master node manages the overall cluster, while the worker nodes execute the tasks and run the containers. The Kubernetes API is a core component that allows communication and interaction with the cluster, enabling users to control and manage the cluster's resources and workloads.
 
 Nodes - Master Node, Worker Nodes, (The Kubernetes API)
+\newline
+split archit. and deployment + maybe do architecture overview better(more general w/o specifics)
+\textbf{-> kubernetes-design-1.png}
 \subsubsection*{Workload}
 Workload in Kubernetes refers to the tasks or applications that run within the cluster. Kubernetes provides several resources to define and manage workloads effectively. Deployments are used to define and manage pods, which are the basic units of execution in Kubernetes. ReplicaSets, controlled by deployments, ensure the desired number of pod replicas are running. These resources enable easy scaling, rolling updates, and self-healing for applications running in the cluster.
 
