@@ -16,7 +16,7 @@
   keywordstyle=\color{blue}\bfseries,
   ndkeywords={class, export, boolean, throw, implements, import, this},
   ndkeywordstyle=\color{darkgray}\bfseries,
-  identifierstyle=\color{black},
+  identifierstyle=\color{black},/Users/stepo/Documents
   sensitive=false,
   comment=[l]{//},
   morecomment=[s]{/*}{*/},
@@ -42,14 +42,14 @@
 \begin{document}
 \maketitle
 
-In this document, we will guide the reader through the process of setting up a custom Kubernetes cluster. We will showcase its specific features, aiming to facilitate the deployment and execution of web applications within the cluster.
+In this document, we will guide the reader through the process of setting up a custom Kubernetes cluster. We will showcase its specific features, aiming to facilitate deployment and production of web applications within cluster.
 \bigbreak
 Kubernetes is an open-source container orchestration tool bringing new modern approach for running web applications in the cloud. Kubernetes was created by Google in 2014 and written in Go. Running production on open-source software, however, comes without any guarantees. Thus, a market for commecrial products arised. In this document we will not only present the setup per-se but also compare managed providers with self-hosted commercial solutions to self-hosted plain Kubernetes. \par
 \bigbreak
-We will break down each step of the process ranging from overview to actual deployment on specific cloud provider.   
+We will guide you, reader, through each step of the process ranging from overview to the actual deployment on specific cloud provider.   
 
 \section{Problem description}
-There are several motivations that led to the creation of Kubernetes. Environment isolation and scaling are the most significant ones. We want to have an "universal runtime environment" of various technologies to satisfy needs of developers and necesities of our company. These might range from developers needing various versions of PHP and different installed libraries to robust .NET backend, Remote Dictionary Server for session sharing, different frontends with client-side routing defined by developer (with no need of editing webserver or breaching rules for htaccess) or even microservices. 
+There are several motivations that led to the creation of Kubernetes. Environment isolation and scaling are the most significant ones. We want to have "agnostic runtime environment" for various technologies to satisfy needs of developers and necesities of one's company. These needs might range from developers needing various versions of PHP and different installed libraries to robust .NET backend, Remote Dictionary Server for session sharing, different frontends with client-side routing defined by developer (with no need of editing webserver or breaching rules for htaccess) or even microservices. 
 \subsection{Stack mismatch across projects}
 We can encouter different needs within organization. Oldschool approach to having servers with usually one runtime fails since each user can have slightly different needs.
 \subsubsection{Backend technologies \& library needs}
